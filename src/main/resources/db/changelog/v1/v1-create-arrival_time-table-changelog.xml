@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="4" author="Skoblik Maksim">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="arrival_time"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="arrival_time">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="check_in" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="check_out" type="TIME"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

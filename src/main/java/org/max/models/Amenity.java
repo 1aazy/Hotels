@@ -1,9 +1,8 @@
 package org.max.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,8 +17,7 @@ public class Amenity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name")
+    @NotBlank(message = "Amenity name is required")
     private String name;
-
-    @ManyToMany(mappedBy = "amenities")
-    private Set<Hotel> hotels;
 }

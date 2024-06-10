@@ -1,27 +1,33 @@
 package org.max.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "arrival_time")
 public class ArrivalTime {
-// TODO add validation
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // TODO rewrite to Date class
     @Column(name = "check_in")
-    private String checkIn;
+    @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
+    @NotNull(message = "Check-in time is required")
+    private LocalTime checkIn;
 
-    // TODO rewrite to Date class
     @Column(name = "check_out")
-    private String checkOut;
+    @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime checkOut;
 }

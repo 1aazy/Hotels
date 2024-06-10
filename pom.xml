@@ -16,6 +16,10 @@
     <description>hotels</description>
 
     <properties>
+        <modelMapper.version>3.1.1</modelMapper.version>
+        <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
+        <liquibase.version>4.27.0</liquibase.version>
+        <spring-doc.version>2.3.0</spring-doc.version>
         <java.version>17</java.version>
     </properties>
 
@@ -49,6 +53,31 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelMapper.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${spring-doc.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
